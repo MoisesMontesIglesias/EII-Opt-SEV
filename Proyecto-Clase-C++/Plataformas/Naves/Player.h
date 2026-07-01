@@ -13,7 +13,7 @@ public:
 	void jump();
 	void moveX(float axis);
 	void moveY(float axis);
-	void draw(float scrollX = 0) override; // Va a sobrescribir
+	void draw(float scrollX = 0, float scrollY = 0) override; // Va a sobrescribir
 	void loseLife();
 	int lifes = 3;
 	int invulnerableTime = 0;
@@ -34,4 +34,6 @@ public:
 	Animation* animation; // Referencia a la animación mostrada
 	int shootCadence = 30;
 	int shootTime = 0;
+
+	int timeOnTile = 0;
 };

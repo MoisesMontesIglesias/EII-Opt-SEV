@@ -17,6 +17,9 @@ void GameLayer::init() {
 
 	space = new Space(1);
 	scrollX = 0;
+	//Ampliacion-5
+	scrollY = 0;
+
 	tiles.clear();
 	points = 0;
 	textPoints = new Text("hola", WIDTH * 0.92, HEIGHT * 0.04, game);
@@ -28,11 +31,31 @@ void GameLayer::init() {
 
 	projectiles.clear(); // Vaciar por si reiniciamos el juego
 
+	//Ampliacion-6
+	item = new ItemRecolectable(WIDTH * 0.95, HEIGHT * 0.945, game);
+	monedas.clear();
+
+	//Ampliacion-14
+	puntosGuardado.clear();
+
 	enemies.clear(); // Vaciar por si reiniciamos el juego
 	loadMap("res/" + to_string(game->currentLevel) + ".txt");
 }
 
 void GameLayer::calculateScroll() {
+	//Ampliacion-5
+	//limite alto
+	if (player->y > HEIGHT * 0.3) {
+		if (player->y - scrollY < HEIGHT * 0.3) {
+			scrollY = player->y - HEIGHT * 0.3;
+		}
+	}
+	// limite bajo
+	if (player->y < mapWidth - HEIGHT * 0.3) {
+		if (player->y - scrollY > HEIGHT * 0.7) {
+			scrollY = player->y - HEIGHT * 0.7;
+		}
+	}
 	// limite izquierda
 	if (player->x > WIDTH * 0.3) {
 		if (player->x - scrollX < WIDTH * 0.3) {
@@ -124,6 +147,45 @@ void GameLayer::loadMapObject(char character, float x, float y)
 		tile->y = tile->y - tile->height / 2;
 		tiles.push_back(tile);
 		space->addStaticActor(tile);
+		break;
+	}
+	//Ampliacion-6
+	case 'M': {
+		loadMapObject('.', x, y);
+		Moneda* moneda = new Moneda(x, y, game);
+		// modificación para empezar a contar desde el suelo.
+		moneda->y = moneda->y - moneda->height / 2;
+		monedas.push_back(moneda);
+		break;
+	}
+	//Ampliacion-9
+	case 'W': {
+		loadMapObject('.', x, y);
+		TileDestruibleJump* tile = new TileDestruibleJump("res/bloque_metal.png", x, y, game);
+		// modificación para empezar a contar desde el suelo.
+		tile->y = tile->y - tile->height / 2;
+		tiles.push_back(tile);
+		space->addStaticActor(tile);
+		break;
+	}
+	//Ampliacion-10
+	case 'U': {
+		loadMapObject('.', x, y);
+		TileDestruibleShooting* tile = new TileDestruibleShooting("res/bloque_metal.png", x, y, game);
+		// modificación para empezar a contar desde el suelo.
+		tile->y = tile->y - tile->height / 2;
+		tiles.push_back(tile);
+		space->addStaticActor(tile);
+		break;
+	}
+	//Ampliacion-14
+	case 'P': {
+		loadMapObject('.', x, y);
+		PuntoGuardado* punto = new PuntoGuardado("res/planeta_1.png", x, y, game);
+		// modificación para empezar a contar desde el suelo.
+		punto->y = punto->y - punto->height / 2;
+		puntosGuardado.push_back(punto);
+		space->addStaticActor(punto);
 		break;
 	}
 	}
@@ -275,7 +337,10 @@ void GameLayer::keysToControls(SDL_Event event) {
 
 }
 
-
+void GameLayer::setSavePoint(float x, float y) {
+	savePointX = x;
+	savePointY = y;
+}
 
 void GameLayer::update() {
 	//projectiles.push_back(new Projectile(player->x, player->y, game));
@@ -293,11 +358,18 @@ void GameLayer::update() {
 			WIDTH, HEIGHT, game);
 		pause = true;
 		init();
+		//Ampliacion-14
+		savePointX = player->x;
+		savePointY = player->y;
 	}
 
-	// Jugador se cae
+	//Ampliacion-14
+	//Jugador se cae
 	if (player->y > HEIGHT + 80) {
+		// Reaparecer en el punto de guardado
 		init();
+		player->x = savePointX;
+		player->y = savePointY;
 	}
 
 	space->update();
@@ -308,6 +380,29 @@ void GameLayer::update() {
 	}
 	for (auto const& projectile : projectiles) {
 		projectile->update();
+	}
+
+	//Ampliacion-9
+	for (auto it = tiles.begin(); it != tiles.end();) {
+		if (TileDestruibleJump* tileDestruible = dynamic_cast<TileDestruibleJump*>(*it)) {
+			if (player->collisionDown && tileDestruible->playerOnTile(player)) {
+				if (!tileDestruible->activeDestruction) {
+					tileDestruible->activarDestruccion(30);
+				}
+			}
+			tileDestruible->updateDestructionTimer(1);
+			if (tileDestruible->shouldDestroy()) {
+				space->removeStaticActor(tileDestruible);
+				loadMapObject('.', tileDestruible->x, tileDestruible->y);
+				it = tiles.erase(it);
+			}
+			else {
+				++it; 
+			}
+		}
+		else {
+			++it;
+		}
 	}
 
 	// Colisiones
@@ -321,13 +416,41 @@ void GameLayer::update() {
 		}
 	}
 
+	//Ampliacion-6
+	for (auto const& moneda : monedas) {
+		moneda->update();
+	}
+	list<Moneda*> deleteMonedas;
+	for (auto const& moneda : monedas) {
+		if (player->isOverlap(moneda)) {
+			item->update();
+		}
+	}
+	for (auto const& moneda : monedas) {
+		if (moneda->isOverlap(player)) {
+			bool mInList = std::find(deleteMonedas.begin(),
+				deleteMonedas.end(),
+				moneda) != deleteMonedas.end();
+
+			if (!mInList) {
+				deleteMonedas.push_back(moneda);
+			}
+
+			deleteMonedas.push_back(moneda);
+		}
+	}
+	for (auto const& delMoneda : deleteMonedas) {
+		monedas.remove(delMoneda);
+	}
+	deleteMonedas.clear();
+
 	// Colisiones , Enemy - Projectile
 
 	list<Enemy*> deleteEnemies;
 	list<Projectile*> deleteProjectiles;
 
 	for (auto const& projectile : projectiles) {
-		if (projectile->isInRender(scrollX) == false ||projectile->vx == 0) {
+		if (projectile->isInRender(scrollX, scrollY) == false ||projectile->vx == 0) {
 
 			bool pInList = std::find(deleteProjectiles.begin(),
 				deleteProjectiles.end(),
@@ -339,6 +462,29 @@ void GameLayer::update() {
 		}
 	}
 
+	//Ampliacion-10
+	for (auto it = tiles.begin(); it != tiles.end();) {
+		if (TileDestruibleShooting* tileDestruible = dynamic_cast<TileDestruibleShooting*>(*it)) {
+			for (auto const& projectile : projectiles) {
+				if (tileDestruible->isOverlap(projectile)) {
+					bool pInList = std::find(deleteProjectiles.begin(),
+						deleteProjectiles.end(),
+					projectile) != deleteProjectiles.end();
+
+					if (!pInList) {
+						deleteProjectiles.push_back(projectile);
+					}
+					space->removeStaticActor(tileDestruible);
+					it = tiles.erase(it);
+					loadMapObject('.', tileDestruible->x, tileDestruible->y);
+				}
+			}
+			++it;
+		}
+		else {
+			++it;  // Avanzar si el objeto no es de tipo TileDestruible
+		}
+	}
 
 	for (auto const& enemy : enemies) {
 		for (auto const& projectile : projectiles) {
@@ -354,10 +500,32 @@ void GameLayer::update() {
 				enemy->impacted();
 				points++;
 				textPoints->content = to_string(points);
-
 			}
 		}
 	}
+
+
+	//Ampliacion-14
+	list<PuntoGuardado*> deletePuntosGuardado;
+
+	for (auto const& punto : puntosGuardado) {
+		if (player->isOverlap(punto)) { 
+			bool pInList = std::find(deletePuntosGuardado.begin(),
+				deletePuntosGuardado.end(),
+				punto) != deletePuntosGuardado.end();
+
+			if (!pInList) {
+				deletePuntosGuardado.push_back(punto);
+			}
+			setSavePoint(player->x, player->y);
+		}
+	}
+
+	for (auto const& delPG : deletePuntosGuardado) {
+		puntosGuardado.remove(delPG);
+		space->removeStaticActor(delPG);
+	}
+	deletePuntosGuardado.clear();
 
 	for (auto const& enemy : enemies) {
 		if (enemy->state == game->stateDead) {
@@ -393,22 +561,30 @@ void GameLayer::draw() {
 	calculateScroll();
 
 	background->draw();
+	//Ampliacion-5
 	for (auto const& tile : tiles) {
-		tile->draw(scrollX);
+		tile->draw(scrollX, scrollY);
 	}
 
 	for (auto const& projectile : projectiles) {
-		projectile->draw(scrollX);
+		projectile->draw(scrollX, scrollY);
 	}
-	cup->draw(scrollX);
-	player->draw(scrollX);
+	cup->draw(scrollX, scrollY);
+	player->draw(scrollX, scrollY);
 
 	for (auto const& enemy : enemies) {
-		enemy->draw(scrollX);
+		enemy->draw(scrollX, scrollY);
 	}
 	textPoints->draw();
 	backgroundPoints->draw();
-
+	for (auto const& punto : puntosGuardado) {
+		punto->draw(scrollX, scrollY);
+	}
+	//Ampliacion-6
+	for (auto const& moneda : monedas) {
+		moneda->draw(scrollX, scrollY);
+	}
+	item->draw();
 	// HUD
 	if (game->input == game->inputMouse) {
 		buttonJump->draw(); // NO TIENEN SCROLL, POSICION FIJA

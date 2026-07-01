@@ -13,8 +13,19 @@
 #include <fstream> // Leer ficheros
 #include <sstream> // Leer líneas / String
 
+//Ampliacion-6
+#include "ItemRecolectable.h";
+#include "Moneda.h";
 
-#include <list>
+//Ampliacion-9
+#include "TileDestruibleJump.h"
+#include "TileDestruibleShooting.h"
+
+//Ampliacion-14
+#include "PuntoGuardado.h"
+
+
+#include <list>;
 
 
 class GameLayer : public Layer
@@ -63,6 +74,21 @@ public:
 	list<Enemy*> enemies;
 
 	list<Projectile*> projectiles;
+
+	//Ampliacion-6
+	list<Moneda*> monedas;
+	ItemRecolectable* item;
+
+	//Ampliacion-5
+	float scrollY;
+
+	//Ampliacion-14
+	float savePointX;
+	float savePointY;
+	void setSavePoint(float x, float y);
+
+	//Ampliacion-14
+	list<PuntoGuardado*> puntosGuardado;
 };
 
 

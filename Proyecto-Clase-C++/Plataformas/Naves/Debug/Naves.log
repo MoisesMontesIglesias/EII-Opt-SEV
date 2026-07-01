@@ -1,2 +1,48 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (Naves.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  Naves.vcxproj -> E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Naves (2)\Plataformas\Debug\Plataformas.exe
+  GameLayer.cpp
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.h(17,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.h(18,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\Moneda.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\TileDestruibleJump.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\TileDestruibleShooting.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.h(28,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(16,95): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(25,66): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(35,65): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(47,24): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(53,24): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(59,24): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(66,24): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(89,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(90,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(356,22): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(357,22): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(366,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(367,15): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(394,57): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(394,38): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(480,58): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(480,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(521,34): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(521,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(609,35): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(609,26): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(612,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(615,43): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(615,34): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(618,42): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(618,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(625,51): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(625,42): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(626,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(637,43): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(637,34): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(641,42): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(641,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(647,35): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(647,26): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(652,43): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(652,34): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(655,42): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Naves\GameLayer.cpp(655,33): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Naves.vcxproj -> E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Plataformas 2\Plataformas\Debug\Plataformas.exe
