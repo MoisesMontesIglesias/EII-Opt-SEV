@@ -1,0 +1,39 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/moise/Downloads/Juego11/Juego1/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/Player/PlayerMappingContext.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/BaseLevel.umap",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/Player/Player.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/Player/IA_Jump.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/Player/PlayerAnimBlueprint.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/EnemyProjectile.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/IA/BTT_FindPlayerLocation.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/EnemyArcher/EnemyArcher.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/IA/BT_Enemy.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/PlayerProjectile.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/EnemyArcher/EnemyHumanoid.uasset",
+				"C:/Users/moise/Downloads/Juego11/Juego11/Content/BP_SpeedPowerUp.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/BTT_Shoot.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/EnemyArcher/EnemyArcher.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/EnemyProjectile.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/BT_Enemy.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/EnemyBlackboard.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/BaseLevel.umap",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/BTT_FindPatrolPoint.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/BTT_FindPlayerLocation.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/BTT_CheckDistance.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/NewBehaviorTree.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/NewBlueprint.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/AI_Controller_Enemy.uasset",
+				"C:/Users/Usuario/Desktop/Juego11/Content/IA/BTT_ManageLocation.uasset"
+			]
+		}
+	]
+}
