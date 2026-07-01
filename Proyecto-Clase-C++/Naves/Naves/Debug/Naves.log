@@ -1,0 +1,2 @@
+﻿Player.obj : error LNK2001: símbolo externo "public: virtual void __thiscall Player::draw(void)" (?draw@Player@@UAEXXZ) sin resolver
+E:\3ºAño\1º cuatri\Software de Entretenimiento y Videojuegos\Naves (2)\Naves\Debug\Naves.exe : fatal error LNK1120: 1 externos sin resolver
